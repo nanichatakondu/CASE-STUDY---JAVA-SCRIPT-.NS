@@ -6,11 +6,11 @@ function signup() {
 
   if(n==""||e==""||p==""||cp=="") {
     alert("Fill all fields");
-  } else if(p!=cp) {
+  } else if(p != cp) {
     alert("Passwords not same");
   } else {
-    localStorage.setItem("libUser", e);
-    localStorage.setItem("libPass", p);
+    localStorage.setItem("user", e);
+    localStorage.setItem("pass", p);
     alert("Signup Done");
   }
 }
@@ -18,29 +18,29 @@ function signup() {
 function login() {
   let e = document.getElementById("email").value;
   let p = document.getElementById("pass").value;
-  if(e==localStorage.getItem("libUser") && p==localStorage.getItem("libPass")) {
-    localStorage.setItem("libLogin","1");
+  if(e==localStorage.getItem("user") && p==localStorage.getItem("pass")) {
     alert("Login OK");
+    localStorage.setItem("login","1");
     location.href="index.html";
   } else {
     alert("Wrong login");
   }
 }
 
-function issue(book) {
-  let bag = JSON.parse(localStorage.getItem("issued")) || [];
-  bag.push(book);
-  localStorage.setItem("issued", JSON.stringify(bag));
-  alert("Book Issued");
+function add(item) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push(item);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Added To Cart");
 }
 
-function loadIssued() {
-  let bag = JSON.parse(localStorage.getItem("issued")) || [];
+function loadCart() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
   let box = document.getElementById("list");
-  box.innerHTML="";
-  for(let b of bag) {
-    let p=document.createElement("p");
-    p.innerText=b;
+  box.innerHTML = "";
+  for(let x of cart) {
+    let p = document.createElement("p");
+    p.innerText = x;
     box.appendChild(p);
   }
 }

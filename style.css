@@ -2,13 +2,13 @@ body {
   font-family: Arial;
   padding: 10px;
 }
+h1 {
+  color: darkblue;
+}
 nav a {
   margin-right: 10px;
   text-decoration: none;
 }
-h1 {
-  color: darkgreen;
-}
-input, select, textarea {
+input {
   margin: 5px;
 }
